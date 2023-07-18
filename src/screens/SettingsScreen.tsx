@@ -2,6 +2,7 @@ import React from 'react'
 import { PaddedSafeInset, ChangeThemeDropdown, ThemedText } from '../components'
 import { useTheme } from '../hooks'
 import { StyleSheet, View } from 'react-native'
+import { Sizes } from '../constants'
 
 export default function SettingsScreen() {
   const { theme } = useTheme()
@@ -24,6 +25,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    marginRight: 15
+    marginRight: Sizes.padding
   }
 })

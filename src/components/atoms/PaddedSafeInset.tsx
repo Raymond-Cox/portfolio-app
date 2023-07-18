@@ -4,17 +4,16 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useHeaderHeight } from '@react-navigation/elements'
 import type { IView } from '../../types'
 import { GlobalStyles } from '../../styles'
-
-const defaultPadding = 15
+import { Sizes } from '../../constants'
 
 export default function PaddedSafeInset({ children, style, ...rest }: IView) {
   const { bottom, top } = useSafeAreaInsets()
   const headerHeight = useHeaderHeight()
   const paddingTop = calcTop()
   function calcTop() {
-    if (!headerHeight) return top + defaultPadding
+    if (!headerHeight) return top + Sizes.padding
 
-    return defaultPadding
+    return Sizes.padding
   }
 
   return (
@@ -33,6 +32,6 @@ export default function PaddedSafeInset({ children, style, ...rest }: IView) {
 
 const styles = StyleSheet.create({
   padded: {
-    paddingHorizontal: defaultPadding
+    paddingHorizontal: Sizes.padding
   }
 })
