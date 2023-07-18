@@ -3,7 +3,7 @@ import { StyleSheet, Text, TextProps } from 'react-native'
 import { useTheme } from '../../hooks'
 
 interface IThemedText extends PropsWithChildren<TextProps> {
-  variant?: 'header' | 'default'
+  variant?: 'header' | 'default' | 'subtext'
 }
 export default function ThemedText({
   variant = 'default',
@@ -11,7 +11,7 @@ export default function ThemedText({
   ...rest
 }: IThemedText) {
   const { theme } = useTheme()
-  const variantStyles = variant === 'default' ? styles.text : styles.header
+  const variantStyles = styles[variant]
 
   return (
     <Text {...rest} style={[variantStyles, { color: theme.textColor }]}>
@@ -21,10 +21,14 @@ export default function ThemedText({
 }
 
 const styles = StyleSheet.create({
-  text: {
+  default: {
     fontSize: 16
   },
   header: {
     fontSize: 20
+  },
+  subtext: {
+    fontSize: 14,
+    textAlign: 'center'
   }
 })

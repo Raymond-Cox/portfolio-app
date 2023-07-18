@@ -3,6 +3,7 @@ import { ImageBackground, TouchableOpacity } from 'react-native'
 import { useTheme } from '../hooks'
 import { Flex, PaddedSafeInset, ThemedText } from '../components'
 import { GlobalStyles } from '../styles'
+import { AppsContainer } from '../components/organisms'
 
 export default function HomeScreen() {
   const { theme, toggleTheme } = useTheme()
@@ -15,6 +16,7 @@ export default function HomeScreen() {
           <TouchableOpacity onPress={toggleTheme}>
             <ThemedText>Toggle theme</ThemedText>
           </TouchableOpacity>
+          <AppsContainer />
         </PaddedSafeInset>
       </ImageBackground>
     </Flex>

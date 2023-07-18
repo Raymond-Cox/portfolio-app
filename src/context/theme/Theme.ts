@@ -1,5 +1,5 @@
 import { ColorValue, ImageURISource } from 'react-native'
-import Images from '../../constants/Images'
+import { Images } from '../../constants'
 import { ThemeColor } from './ThemeContext'
 
 export type TTheme = {
