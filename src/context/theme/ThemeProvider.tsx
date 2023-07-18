@@ -19,31 +19,23 @@ export function ThemeProvider({ children }: PropsWithChildren) {
    * Toggles between light/dark theme
    * updates localStorage value
    */
-  const toggleTheme = useCallback(() => {
-    const newColor =
-      themeColor === ThemeColor.Light ? ThemeColor.Dark : ThemeColor.Light
-
-    storage.set('themeColor', newColor)
-    setThemeColor(newColor)
-  }, [themeColor])
+  const toggleTheme = useCallback((themeValue: ThemeColor) => {
+    storage.set('themeColor', themeValue)
+    setThemeColor(themeValue)
+  }, [])
 
   /**
    * Reads system theme from user
    * Sets/stores initial theme value to it
    */
   useEffect(() => {
-    function setInitialTheme() {
+    if (!storage.contains('themeColor')) {
       const initialTheme =
         systemTheme === 'dark' ? ThemeColor.Dark : ThemeColor.Light
 
-      storage.set('themeColor', initialTheme)
-      setThemeColor(initialTheme)
+      toggleTheme(initialTheme)
     }
-
-    if (!storage.contains('themeColor')) {
-      setInitialTheme()
-    }
-  }, [systemTheme])
+  }, [toggleTheme, systemTheme])
 
   const memodValue = useMemo<IThemeContext>(
     () => ({

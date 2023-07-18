@@ -7,6 +7,7 @@ interface IThemedText extends PropsWithChildren<TextProps> {
 }
 export default function ThemedText({
   variant = 'default',
+  style,
   children,
   ...rest
 }: IThemedText) {
@@ -14,7 +15,7 @@ export default function ThemedText({
   const variantStyles = styles[variant]
 
   return (
-    <Text {...rest} style={[variantStyles, { color: theme.textColor }]}>
+    <Text {...rest} style={[variantStyles, style, { color: theme.textColor }]}>
       {children}
     </Text>
   )
@@ -28,7 +29,6 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   subtext: {
-    fontSize: 14,
-    textAlign: 'center'
+    fontSize: 14
   }
 })

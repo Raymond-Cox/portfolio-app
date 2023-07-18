@@ -1,12 +1,16 @@
 import React from 'react'
 import { Flex } from '../atoms'
 import { AppButton } from '../molecules'
-import { Icons } from '../../constants'
+import { Apps } from '../../constants'
 
 export default function AppsContainer() {
   return (
     <Flex>
-      <AppButton iconName={Icons.settings}>Settings</AppButton>
+      {Apps.map(({ text, route, iconName }) => (
+        <AppButton key={text} iconName={iconName} route={route}>
+          {text}
+        </AppButton>
+      ))}
     </Flex>
   )
 }

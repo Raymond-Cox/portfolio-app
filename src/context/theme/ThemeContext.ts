@@ -9,7 +9,7 @@ export enum ThemeColor {
 export interface IThemeContext {
   theme: TTheme
   themeColor: ThemeColor
-  toggleTheme: () => void
+  toggleTheme: (themeValue: ThemeColor) => void
 }
 
 export const ThemeContext = createContext<IThemeContext>({
