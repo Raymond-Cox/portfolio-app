@@ -1,0 +1,7 @@
+# Ignore artifacts:
+.bundle
+
+android
+ios
+node_modules
+vendor
