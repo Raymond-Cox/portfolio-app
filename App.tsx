@@ -1,38 +1,17 @@
 import React from 'react'
-// import type { PropsWithChildren } from 'react'
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native'
-import { useIsDarkMode } from './src/hooks'
-
-// type SectionProps = PropsWithChildren<{
-//   title: string;
-// }>;
+import { HomeScreen } from './src/screens'
+import { Flex, ThemedStatusBar } from './src/components'
+import { ThemeProvider } from './src/context'
 
 function App() {
-  const isDarkMode = useIsDarkMode()
   return (
-    <SafeAreaView>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        // backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-      // style={backgroundStyle}
-      >
-        <View>
-          <Text>Hell</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <ThemeProvider>
+      <Flex>
+        <ThemedStatusBar />
+        <HomeScreen />
+      </Flex>
+    </ThemeProvider>
   )
 }
-
-const styles = StyleSheet.create({})
 
 export default App
