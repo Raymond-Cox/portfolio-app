@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { IconName } from '@fortawesome/fontawesome-svg-core'
 import { useNavigation } from '@react-navigation/native'
 import { HomeScreenNavigationProp, TRoute } from '../../types'
+import { TextSize } from '../../constants'
 
 interface IAppButton extends PropsWithChildren {
   route: TRoute
@@ -31,7 +32,7 @@ export default function AppButton({
       <View style={styles.button}>
         <FontAwesomeIcon icon={iconName} size={size} color={color} />
       </View>
-      <ThemedText variant="subtext" numberOfLines={2} style={styles.text}>
+      <ThemedText size={TextSize.sm} numberOfLines={2} style={styles.text}>
         {children}
       </ThemedText>
     </TouchableOpacity>

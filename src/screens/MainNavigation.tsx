@@ -16,10 +16,7 @@ export default function MainNavigation() {
         headerStyle: {
           backgroundColor: theme.navColor
         },
-        headerTintColor: theme.textColor,
-        headerTitleStyle: {
-          fontWeight: 'bold'
-        }
+        headerTintColor: theme.textColor
       }}>
       <Stack.Screen
         name="Home"

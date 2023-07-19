@@ -2,7 +2,7 @@ import React from 'react'
 import { PaddedSafeInset, ChangeThemeDropdown, ThemedText } from '../components'
 import { useTheme } from '../hooks'
 import { StyleSheet, View } from 'react-native'
-import { Sizes } from '../constants'
+import { Sizes, TextSize } from '../constants'
 
 export default function SettingsScreen() {
   const { theme } = useTheme()
@@ -10,7 +10,7 @@ export default function SettingsScreen() {
   return (
     <PaddedSafeInset style={{ backgroundColor: theme.bgColor }}>
       <View style={styles.container}>
-        <ThemedText variant="header" style={styles.text}>
+        <ThemedText size={TextSize.lg} style={styles.text}>
           Theme
         </ThemedText>
         <ChangeThemeDropdown />

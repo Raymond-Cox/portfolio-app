@@ -19,13 +19,13 @@ interface ITheme {
 
 const Theme: ITheme = {
   [0]: {
-    textColor: 'black',
-    navColor: 'rgb(255, 255, 255)',
-    bgColor: 'rgb(220, 220, 220)',
+    textColor: '#24292f',
+    navColor: '#f6f8fa',
+    bgColor: 'rgb(255, 255, 255)',
     homeBGImg: Images.lightBG,
     statusBarTextColor: 'dark-content',
-    inputBGColor: 'rgb(255, 255, 255)',
-    inputBorderColor: 'rgb(50, 50, 50)'
+    inputBGColor: 'rgb(243, 244, 246)',
+    inputBorderColor: 'rgba(31, 35, 40,0.15)'
   },
   [1]: {
     textColor: 'rgb(173, 186, 199)',

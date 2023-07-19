@@ -1,34 +1,23 @@
 import React, { PropsWithChildren } from 'react'
-import { StyleSheet, Text, TextProps } from 'react-native'
+import { Text, TextProps } from 'react-native'
 import { useTheme } from '../../hooks'
+import { TextSize } from '../../constants'
 
 interface IThemedText extends PropsWithChildren<TextProps> {
-  variant?: 'header' | 'default' | 'subtext'
+  size: TextSize
 }
+
 export default function ThemedText({
-  variant = 'default',
+  size = TextSize.md,
   style,
   children,
   ...rest
 }: IThemedText) {
   const { theme } = useTheme()
-  const variantStyles = styles[variant]
 
   return (
-    <Text {...rest} style={[variantStyles, style, { color: theme.textColor }]}>
+    <Text style={[style, { color: theme.textColor, fontSize: size }]} {...rest}>
       {children}
     </Text>
   )
 }
-
-const styles = StyleSheet.create({
-  default: {
-    fontSize: 16
-  },
-  header: {
-    fontSize: 20
-  },
-  subtext: {
-    fontSize: 14
-  }
-})
