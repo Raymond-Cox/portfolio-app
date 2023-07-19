@@ -7,6 +7,9 @@ const GlobalStyles = StyleSheet.create({
   },
   gap: {
     gap: Sizes.padding
+  },
+  row: {
+    flexDirection: 'row'
   }
 })
 

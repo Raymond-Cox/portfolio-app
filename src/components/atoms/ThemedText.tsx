@@ -4,7 +4,7 @@ import { useTheme } from '../../hooks'
 import { TextSize } from '../../constants'
 
 interface IThemedText extends PropsWithChildren<TextProps> {
-  size: TextSize
+  size?: TextSize
 }
 
 export default function ThemedText({

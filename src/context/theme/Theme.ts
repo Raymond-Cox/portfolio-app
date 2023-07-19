@@ -10,6 +10,8 @@ export type TTheme = {
   statusBarTextColor: 'dark-content' | 'light-content'
   inputBGColor: string
   inputBorderColor: string
+  shadowColor: string
+  shadowOpacity: number
 }
 
 interface ITheme {
@@ -25,7 +27,9 @@ const Theme: ITheme = {
     homeBGImg: Images.lightBG,
     statusBarTextColor: 'dark-content',
     inputBGColor: 'rgb(243, 244, 246)',
-    inputBorderColor: 'rgba(31, 35, 40,0.15)'
+    inputBorderColor: 'rgba(31, 35, 40,0.15)',
+    shadowColor: 'rgb(0,0,0)',
+    shadowOpacity: 0.1
   },
   [1]: {
     textColor: 'rgb(173, 186, 199)',
@@ -34,7 +38,9 @@ const Theme: ITheme = {
     homeBGImg: Images.darkBG,
     statusBarTextColor: 'light-content',
     inputBGColor: 'rgb(68,76,86)',
-    inputBorderColor: 'rgb(117, 130, 143)'
+    inputBorderColor: 'rgb(117, 130, 143)',
+    shadowColor: 'rgb(120,140,150)',
+    shadowOpacity: 0.2
   }
 }
 

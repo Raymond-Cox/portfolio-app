@@ -1,5 +1,6 @@
 export const Sizes = {
-  padding: 15
+  padding: 15,
+  borderRadius: 10
 }
 
 export enum TextSize {

@@ -1,9 +1,13 @@
 import React from 'react'
-import { ImageBackground } from 'react-native'
+import { ImageBackground, StyleSheet, View } from 'react-native'
 import { useTheme } from '../hooks'
 import { Flex, PaddedSafeInset } from '../components'
 import { GlobalStyles } from '../styles'
-import { AppsContainer, TimeWidget } from '../components/organisms'
+import {
+  AppsContainer,
+  TimeWidget,
+  WeatherWidget
+} from '../components/organisms'
 
 export default function HomeScreen() {
   const { theme } = useTheme()
@@ -12,10 +16,24 @@ export default function HomeScreen() {
     <Flex>
       <ImageBackground source={theme.homeBGImg} style={GlobalStyles.container}>
         <PaddedSafeInset style={GlobalStyles.gap}>
-          <TimeWidget />
+          <View
+            style={[
+              GlobalStyles.row,
+              GlobalStyles.gap,
+              styles.widgetContainer
+            ]}>
+            <TimeWidget />
+            <WeatherWidget />
+          </View>
           <AppsContainer />
         </PaddedSafeInset>
       </ImageBackground>
     </Flex>
   )
 }
+
+const styles = StyleSheet.create({
+  widgetContainer: {
+    height: 100
+  }
+})

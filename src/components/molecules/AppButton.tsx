@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { IconName } from '@fortawesome/fontawesome-svg-core'
 import { useNavigation } from '@react-navigation/native'
 import { HomeScreenNavigationProp, TRoute } from '../../types'
-import { TextSize } from '../../constants'
+import { Sizes, TextSize } from '../../constants'
+import { useTheme } from '../../hooks'
 
 interface IAppButton extends PropsWithChildren {
   route: TRoute
@@ -21,6 +22,7 @@ export default function AppButton({
   color,
   children
 }: IAppButton) {
+  const { theme } = useTheme()
   const navigation = useNavigation<HomeScreenNavigationProp>()
 
   function onPress() {
@@ -29,7 +31,11 @@ export default function AppButton({
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <View style={styles.button}>
+      <View
+        style={[
+          styles.button,
+          { shadowColor: theme.shadowColor, shadowOpacity: theme.shadowOpacity }
+        ]}>
         <FontAwesomeIcon icon={iconName} size={size} color={color} />
       </View>
       <ThemedText size={TextSize.sm} numberOfLines={2} style={styles.text}>
@@ -48,13 +54,12 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: Sizes.borderRadius,
     backgroundColor: 'white',
     height: 60,
     width: 60,
     marginBottom: 5,
-    shadowColor: 'rgba(0, 0, 0, .6)',
-    shadowRadius: 10,
+    shadowRadius: 15,
     elevation: 3
   },
   text: {
