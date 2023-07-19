@@ -1,8 +1,8 @@
 import { IconName, library } from '@fortawesome/fontawesome-svg-core'
-import { faGear } from '@fortawesome/free-solid-svg-icons'
+import { faCircleExclamation, faGear } from '@fortawesome/free-solid-svg-icons'
 
 export function initializeIcons() {
-  library.add(faGear)
+  library.add(faGear, faCircleExclamation)
 }
 
 interface IIcons {
@@ -10,5 +10,6 @@ interface IIcons {
 }
 
 export const Icons: IIcons = {
-  settings: 'gear'
+  settings: 'gear',
+  exclamation: 'circle-exclamation'
 }

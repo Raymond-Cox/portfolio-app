@@ -1,14 +1,20 @@
 import React from 'react'
-import { ActivityIndicator, StyleSheet, View } from 'react-native'
+import {
+  ActivityIndicator,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from 'react-native'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { useQuery } from '@tanstack/react-query'
 import { WeatherAPI } from '../../api'
 import { ThemedText } from '../atoms'
-import { useQuery } from '@tanstack/react-query'
-import { Sizes, TextSize, WeatherCodes } from '../../constants'
+import { Icons, Sizes, TextSize, WeatherCodes } from '../../constants'
 import { useTheme } from '../../hooks'
 import { GlobalStyles } from '../../styles'
 
 export default function WeatherWidget() {
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ['weather'],
     queryFn: fetchWeather
   })
@@ -22,8 +28,23 @@ export default function WeatherWidget() {
 
   function _renderData() {
     if (isLoading) return <ActivityIndicator size="large" />
-    /** @ts-ignore */
-    if (isError) return <ThemedText>{error.toString()}</ThemedText>
+    if (isError)
+      return (
+        <TouchableOpacity
+          /** @ts-ignore */
+          onPress={refetch}
+          style={[
+            GlobalStyles.container,
+            GlobalStyles.center,
+            styles.errorContainer
+          ]}>
+          <FontAwesomeIcon
+            icon={Icons.exclamation}
+            size={40}
+            color={theme.textColor}
+          />
+        </TouchableOpacity>
+      )
 
     const { current_weather, hourly_units } = data
     const { DaySVG, NightSVG } = WeatherCodes[current_weather.weathercode]
@@ -68,5 +89,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: Sizes.borderRadius,
     ...GlobalStyles.shadows
+  },
+  errorContainer: {
+    width: '100%'
   }
 })
