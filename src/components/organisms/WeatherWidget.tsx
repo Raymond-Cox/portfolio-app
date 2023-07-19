@@ -53,8 +53,7 @@ export default function WeatherWidget() {
         styles.container,
         {
           backgroundColor: theme.inputBGColor,
-          shadowColor: theme.shadowColor,
-          shadowOpacity: theme.shadowOpacity
+          ...theme.shadows
         }
       ]}>
       {_renderData()}
@@ -68,8 +67,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: Sizes.borderRadius,
-    shadowOpacity: 0.2,
-    shadowRadius: 15,
-    elevation: 3
+    ...GlobalStyles.shadows
   }
 })

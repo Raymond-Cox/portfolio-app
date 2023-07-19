@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native'
 import { HomeScreenNavigationProp, TRoute } from '../../types'
 import { Sizes, TextSize } from '../../constants'
 import { useTheme } from '../../hooks'
+import { GlobalStyles } from '../../styles'
 
 interface IAppButton extends PropsWithChildren {
   route: TRoute
@@ -31,11 +32,7 @@ export default function AppButton({
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <View
-        style={[
-          styles.button,
-          { shadowColor: theme.shadowColor, shadowOpacity: theme.shadowOpacity }
-        ]}>
+      <View style={[styles.button, theme.shadows]}>
         <FontAwesomeIcon icon={iconName} size={size} color={color} />
       </View>
       <ThemedText size={TextSize.sm} numberOfLines={2} style={styles.text}>
@@ -59,8 +56,7 @@ const styles = StyleSheet.create({
     height: 60,
     width: 60,
     marginBottom: 5,
-    shadowRadius: 15,
-    elevation: 3
+    ...GlobalStyles.shadows
   },
   text: {
     textAlign: 'center',

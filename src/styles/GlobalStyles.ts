@@ -18,6 +18,12 @@ const GlobalStyles = StyleSheet.create({
   spaceEvenly: {
     alignItems: 'center',
     justifyContent: 'space-evenly'
+  },
+  shadows: {
+    // Reminder, you still need to add
+    // shadowColor and shadowOpacity via theme
+    shadowRadius: 15,
+    elevation: 3
   }
 })
 

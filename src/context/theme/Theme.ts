@@ -2,6 +2,11 @@ import { ColorValue, ImageURISource } from 'react-native'
 import { Images } from '../../constants'
 import { ThemeColor } from './ThemeContext'
 
+type Shadows = {
+  shadowColor: string
+  shadowOpacity: number
+}
+
 export type TTheme = {
   textColor: string
   bgColor: ColorValue
@@ -10,8 +15,7 @@ export type TTheme = {
   statusBarTextColor: 'dark-content' | 'light-content'
   inputBGColor: string
   inputBorderColor: string
-  shadowColor: string
-  shadowOpacity: number
+  shadows: Shadows
 }
 
 interface ITheme {
@@ -28,8 +32,10 @@ const Theme: ITheme = {
     statusBarTextColor: 'dark-content',
     inputBGColor: 'rgb(243, 244, 246)',
     inputBorderColor: 'rgba(31, 35, 40,0.15)',
-    shadowColor: 'rgb(0,0,0)',
-    shadowOpacity: 0.1
+    shadows: {
+      shadowColor: 'rgb(0,0,0)',
+      shadowOpacity: 0.1
+    }
   },
   [1]: {
     textColor: 'rgb(173, 186, 199)',
@@ -39,8 +45,10 @@ const Theme: ITheme = {
     statusBarTextColor: 'light-content',
     inputBGColor: 'rgb(68,76,86)',
     inputBorderColor: 'rgb(117, 130, 143)',
-    shadowColor: 'rgb(120,140,150)',
-    shadowOpacity: 0.2
+    shadows: {
+      shadowColor: 'rgb(120,140,150)',
+      shadowOpacity: 0.2
+    }
   }
 }
 
