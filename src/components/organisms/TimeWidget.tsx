@@ -24,7 +24,7 @@ export default function TimeWidget() {
   return (
     <View style={styles.container}>
       <ThemedText size={TextSize.xxl}>
-        {now.toLocaleString(DateTime.TIME_WITH_SECONDS)}
+        {now.toLocaleString(DateTime.TIME_SIMPLE)}
       </ThemedText>
       <ThemedText size={TextSize.xl}>
         {now.toLocaleString(DateTime.DATE_FULL)}

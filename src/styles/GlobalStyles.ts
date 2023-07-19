@@ -10,6 +10,14 @@ const GlobalStyles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row'
+  },
+  center: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  spaceEvenly: {
+    alignItems: 'center',
+    justifyContent: 'space-evenly'
   }
 })
 
